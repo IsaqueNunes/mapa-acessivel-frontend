@@ -1,0 +1,13 @@
+.main-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero {
+  height: 70dvh;
+  width: 50dvh;
+
+  object-fit: cover;
+  /* object-position: -20% 0; */
+}

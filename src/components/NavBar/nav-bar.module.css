@@ -1,0 +1,15 @@
+.nav-bar-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.nav-bar-option {
+  list-style-type: none;
+}
+
+.active-nav-bar-option {
+  border-bottom: .1em solid #102021;
+}
