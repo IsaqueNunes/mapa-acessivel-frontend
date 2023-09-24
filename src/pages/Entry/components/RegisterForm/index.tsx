@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import styles from './register.module.css'
+import Input from '../../../../components/Input';
+import { Button } from '../../../../components/Button';
 
 export function RegisterForm() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -12,45 +15,36 @@ export function RegisterForm() {
       className='entry-form'
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name">Nome Completo</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-      />
+      <div className={styles["input-container"]}>
+        <label htmlFor="name">Nome Completo</label>
+        <Input />
+      </div>
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        required
-      />
+      <div className={styles["input-container"]}>
+        <label htmlFor="email">Email</label>
+        <Input />
+      </div>
 
-      <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        required
-      />
+      <div className={styles["input-container"]}>
+        <label htmlFor="password">Senha</label>
+        <Input />
+      </div>
 
-      <label htmlFor="confirmation-password">Confirme sua senha</label>
-      <input
-        type="password"
-        name="confirmation-password"
-        id="confirmation-password"
-        required
-      />
+      <div className={styles["input-container"]}>
+        <label htmlFor="confirmation-password">Confirme sua senha</label>
+        <Input />
+      </div>
 
-      <button
+      <Button
         type="submit"
+        variation='solid'
         form="login-form"
       >
         Entrar
-      </button>
-      <Link to="/login">Já possuo cadastro</Link>
+      </Button>
+      <Link to="/login">
+        Já possuo cadastro
+      </Link>
     </form>
   )
 }

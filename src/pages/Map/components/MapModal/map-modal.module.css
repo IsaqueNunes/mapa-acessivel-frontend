@@ -1,0 +1,28 @@
+#map-modal {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  z-index: 1;
+
+  width: 50%;
+  height: 75%;
+  border-radius: 1rem;
+
+  background: #FFFFFF99;
+  display: flex;
+  flex-direction: column;
+}
+
+#establishment-image {
+  background-color: #FFFFFF;
+  width: 100%;
+  max-height: 40%;
+  object-fit: cover;
+}
+
+#establishment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}

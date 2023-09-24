@@ -1,0 +1,23 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-text);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  outline: none;
+}

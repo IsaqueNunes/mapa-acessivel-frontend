@@ -12,6 +12,7 @@ import { RegisterForm } from './pages/Entry/components/RegisterForm';
 
 import './App.css'
 import axios from 'axios';
+import { NewEstablishment } from './pages/NewEstablishment';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
           return  { establishments };
         },
       },
+      { path: '/new-establishment', element: <NewEstablishment /> },
       { path: 'about', element: <About /> },
     ]
   },

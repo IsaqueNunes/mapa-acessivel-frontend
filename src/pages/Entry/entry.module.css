@@ -1,0 +1,41 @@
+#main-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem
+}
+
+#map-image {
+  height: 80dvh;
+  max-width: 30dvw;
+  object-fit: cover;
+
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+#entry-content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#site-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+#if-logo {
+  height: 5em;
+}
+
+#entry-content>form {
+  flex-wrap: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}

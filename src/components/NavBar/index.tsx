@@ -1,16 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import styles from './nav-bar.module.css'
+import { Button } from "../Button";
 
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/map', label: 'Mapa' },
   { to: '/establishments', label: 'Estabelecimentos' },
   { to: '/about', label: 'Sobre' },
-  { to: '/login', label: 'Login' }
 ]
 
 export function NavBar(props: React.HTMLAttributes<HTMLElement>) {
+  const navigate = useNavigate()
+  const onLoginClick = () => {
+    navigate('/login')
+  }
+
   return (
     <nav { ...props }>
       <ul className={styles["nav-bar-options"]}>{navItems.map(item => (
@@ -24,7 +29,13 @@ export function NavBar(props: React.HTMLAttributes<HTMLElement>) {
             {item.label}
           </NavLink>
         </li>
-      ))}</ul>
+      ))}
+      <Button variation="solid"
+        onClick={onLoginClick}
+      >
+        Login
+      </Button>
+      </ul>
     </nav>
   )
 }
