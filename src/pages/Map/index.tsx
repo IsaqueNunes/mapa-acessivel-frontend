@@ -13,7 +13,7 @@ const containerStyle = {
 export function Map() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: ''
+    googleMapsApiKey: 'AIzaSyB-Z1vHMjuGkZ6ovkcZwypA9KWzS6qU5Rc'
   })
 
   const markers = [

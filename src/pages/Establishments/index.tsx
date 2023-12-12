@@ -7,18 +7,14 @@ type EstablishmentResponse = {
   ownerId: string
 }
 
-type LoaderData = {
-  establishments: EstablishmentResponse[];
-}
-
 export function Establishments() {
-  const { establishments } = useLoaderData() as LoaderData;
+  const establishments = useLoaderData() as EstablishmentResponse[];
   return (
     <main>
       <h1>Estabelecimentos</h1>
 
       <ul>
-        {establishments.map(establishment => (
+        {establishments.map((establishment: EstablishmentResponse) => (
           <li key={establishment.id}>
             <h2>{establishment.name}</h2>
             <p>{establishment.address}</p>

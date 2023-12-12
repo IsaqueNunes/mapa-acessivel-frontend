@@ -11,7 +11,6 @@ import { Map } from './pages/Map';
 import { RegisterForm } from './pages/Entry/components/RegisterForm';
 
 import './App.css'
-import axios from 'axios';
 import { NewEstablishment } from './pages/NewEstablishment';
 
 const router = createBrowserRouter([
@@ -23,10 +22,10 @@ const router = createBrowserRouter([
       {
         path: 'establishments',
         element: <Establishments />,
-        loader: () => {
-          const establishments = axios.get('http://localhost:3000/establishment').then(response => response.data);
+        loader: async () => {
+          const establishments = await fetch('http://localhost:3000/establishment').then(response => response.json());
           console.log(establishments)
-          return  { establishments };
+          return establishments;
         },
       },
       { path: '/new-establishment', element: <NewEstablishment /> },

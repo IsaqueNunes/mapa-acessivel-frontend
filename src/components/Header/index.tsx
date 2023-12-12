@@ -8,7 +8,7 @@ export function Header() {
     <>
       <header id={styles["header"]}>
         <Link to={'/'}>
-          <h1>Mapa Acessível</h1>
+          <h1>Meu Mapa Acessível</h1>
         </Link>
         <NavBar />
       </header>
