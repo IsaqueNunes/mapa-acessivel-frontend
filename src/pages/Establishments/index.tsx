@@ -1,23 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import styles from './establishments.module.css'
 
-type EstablishmentResponse = {
-  id: string;
+export type EstablishmentResponse = {
+  id: number;
   name: string;
   address: string;
-  ownerId: string
+  lat: number,
+  lng: number,
+  ownerId: number
 }
 
 export function Establishments() {
   const establishments = useLoaderData() as EstablishmentResponse[];
   return (
-    <main>
+    <main id={styles['container']}>
       <h1>Estabelecimentos</h1>
 
       <ul>
         {establishments.map((establishment: EstablishmentResponse) => (
-          <li key={establishment.id}>
-            <h2>{establishment.name}</h2>
-            <p>{establishment.address}</p>
+          <li id={styles['comment']} key={establishment.id} >
+            <Link to={`/map?establishmentId=${establishment.id}`}>
+              <h2>{establishment.name}</h2>
+              <p>{establishment.address}</p>
+            </Link>
           </li>
         ))}
       </ul>

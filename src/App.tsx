@@ -12,6 +12,7 @@ import { RegisterForm } from './pages/Entry/components/RegisterForm';
 
 import './App.css'
 import { NewEstablishment } from './pages/NewEstablishment';
+import { establishments } from './assets/data/establishments';
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
         path: 'establishments',
         element: <Establishments />,
         loader: async () => {
-          const establishments = await fetch('http://localhost:3000/establishment').then(response => response.json());
-          console.log(establishments)
+          // const establishments = await fetch('http://localhost:3000/establishment').then(response => response.json());
+
           return establishments;
         },
       },
