@@ -22,36 +22,44 @@ export function Map() {
   type Marker = {
     id: number,
     name: string,
+    description: string,
     lat: number,
     lng: number,
-    street: string,
-    startsCounting: number
+    address: string,
+    startsCounting: number,
+    comments: string[]
   };
 
   const markers: Marker[] = [
     {
       id: 0,
       name: 'Grau Técnico Campinas: Administração, Enfermagem e Radiologia',
-      lat: -22.908044,
-      lng: -47.06069,
-      street: 'Av.Dr.Moraes Salles, 488 - Centro, Campinas - SP, 13010 - 001, Brazil',
+      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+      lat: -22.908166,
+      lng: -47.0597819,
       startsCounting: 5,
+      address: 'Av. Dr. Moraes Salles, 488 - Centro, Campinas - SP, 13010-001, Brazil',
+      comments: []
     },
     {
       id: 1,
       name: 'JIMI Aviamentos e Artesanatos',
-      lat: -22.9088179,
-      lng: -47.0637339,
-      street: 'Rua Dr. Costa Aguiar, 253 - Centro, Campinas - SP, 13010-061, Brazil',
+      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+      lat: -22.90760,
+      lng: -47.06366,
       startsCounting: 3,
+      address: 'Rua Dr. Costa Aguiar, 253 - Centro, Campinas - SP, 13010-061, Brazil',
+      comments: []
     },
     {
       id: 2,
       name: "McDonald's",
-      lat: -22.9067511,
-      lng: -47.0615529,
-      street: 'Av. Francisco Glicério, 1000 - Centro, Campinas - SP, 13012-100, Brazil',
+      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+      lat: -22.905674,
+      lng: -47.059313,
       startsCounting: 5,
+      address: 'Av. Francisco Glicério, 1000 - Centro, Campinas - SP, 13012-100, Brazil',
+      comments: []
     }
   ]
 
@@ -65,12 +73,10 @@ export function Map() {
         <GoogleMap
           mapContainerStyle={{ ...containerStyle }}
           zoom={15}
-          center={
-            {
-              lat: clickedMarker ? clickedMarker.lat : -22.908166,
-              lng: clickedMarker ? clickedMarker.lng : -47.062173
-            }
-          }
+          center={{
+            lat: clickedMarker ? clickedMarker.lat : -22.908166,
+            lng: clickedMarker ? clickedMarker.lng : -47.062173
+          }}
           options={{
             fullscreenControl: false,
             zoomControlOptions: {
@@ -79,13 +85,15 @@ export function Map() {
             panControlOptions: {
               position: window.google.maps.ControlPosition.LEFT_CENTER
             },
-            styles: [{
-              featureType: "poi",
-              elementType: 'all',
-              stylers: [{
-                visibility: "off"
-              }]
-            }]
+            styles: [
+              {
+                featureType: "poi",
+                elementType: 'all',
+                stylers: [{
+                  visibility: 'off'
+                }]
+              },
+            ]
           }}
           onClick={() => { setClickedMarker(null) }}
         >
@@ -96,7 +104,6 @@ export function Map() {
                   key={marker.id}
                   label={{
                     text: marker.name,
-                    color: "#FFFFFFAA",
                     className: styles['marker-label']
                   }}
                   position={{ lat: marker.lat, lng: marker.lng }}
@@ -110,7 +117,12 @@ export function Map() {
 
       {clickedMarker ? (
         <MapModal
-          name={clickedMarker.name} street={clickedMarker.street} stars={clickedMarker.startsCounting}
+          name={clickedMarker.name}
+          description={clickedMarker.description}
+          comments={clickedMarker.comments}
+          id={clickedMarker.id}
+          stars={clickedMarker.startsCounting}
+          address={clickedMarker.address}
         />
       ) : null}
 

@@ -1,16 +1,30 @@
+import { SyntheticEvent, useState } from 'react';
 import EstablishmentImage from '../../../../assets/shop.svg'
 
 import styles from './map-modal.module.css'
 
 import star from '../../../../assets/Star.png';
+import { Button } from '../../../../components/Button';
 
 type MapModalProps = {
+  id: number;
+  address: string,
   name: string;
-  street: string,
-  stars: number,
+  stars: number;
+  description: string;
+  comments: string[];
 }
 
-export function MapModal({ name, street, stars }: MapModalProps) {
+export function MapModal({ name, comments, stars, description, address }: MapModalProps) {
+  const [comment, setComment] = useState<string>('')
+  const [newComments, setNewComments] = useState<string[]>([...comments ? comments : []])
+
+  const formAction = (event: SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    setNewComments([...newComments, comment])
+  }
+
   return (
     <div id={styles['map-modal']}>
       <img
@@ -33,14 +47,36 @@ export function MapModal({ name, street, stars }: MapModalProps) {
       <div id={styles['establishment-description-container']}>
         <>
           <h3>Do proprietário</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, sapiente. Consequatur debitis saepe esse facilis voluptates, iure voluptate reiciendis ex fugit placeat ratione blanditiis aspernatur veniam doloremque, iste ea deleniti!  </p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, sapiente. Consequatur debitis saepe esse facilis voluptates, iure voluptate reiciendis ex fugit placeat ratione blanditiis aspernatur veniam doloremque, iste ea deleniti!  </p>
+          <p>{description}</p>
+
         </>
         <>
           <h3>Endereço</h3>
-          <p>{street}</p>
+          <p>{address}</p>
         </>
       </div>
+      <form onSubmit={formAction} id={styles['form-container']}>
+        <textarea
+          name="comments"
+          id={styles['comments']}
+          placeholder='Digite seu comentário'
+          cols={30}
+          rows={10}
+          value={comment}
+          onChange={(event) => setComment(event.target.value)}
+        />
+        <Button >Enviar</Button>
+      </form>
+
+      {newComments ? (
+        <ul id={styles['comments-list']}>
+          {newComments.map(comment => (
+            <li key={comment}>{comment}</li>
+          ))}
+        </ul>
+      ) : (
+        <p id={styles['no-comments']}>Nenhum comentário</p>
+      )}
     </div>
   )
 }

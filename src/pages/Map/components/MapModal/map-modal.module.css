@@ -5,11 +5,12 @@
   z-index: 1;
   padding: 1rem;
   width: 50%;
-  height: 75%;
   border-radius: 1rem;
-  justify-content: space-around;
+  height: 75%;
+  gap: 1rem;
   background: #FFFFFF99;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
 }
 
@@ -45,4 +46,31 @@
   height: 2px;
   width: 100%;
   background-color: #c4c4c4;
+}
+
+
+#comments {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: center;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#comments-list {
+  padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+#form-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
 }

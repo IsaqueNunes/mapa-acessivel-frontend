@@ -4,10 +4,10 @@ import styles from './button.module.css'
 type ButtonVariations = 'outline' | 'solid' | 'link'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variation: ButtonVariations;
+  variation?: ButtonVariations;
 }
 
-export function Button ({ variation, className, children, ...props }: ButtonProps) {
+export function Button({ variation = 'solid', className, children, ...props }: ButtonProps) {
   return (
     <button className={`${className ? className + ' ' : ''}${styles.button} ${styles[`button-${variation}`]}`} {...props} >
       {children}
