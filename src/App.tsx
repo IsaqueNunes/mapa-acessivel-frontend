@@ -23,8 +23,41 @@ const router = createBrowserRouter([
         path: 'establishments',
         element: <Establishments />,
         loader: async () => {
-          const establishments = await fetch('http://localhost:3000/establishment').then(response => response.json());
-          console.log(establishments)
+          /* const establishments = await fetch('http://localhost:3000/establishment').then(response => response.json());
+          console.log(establishments) */
+
+          const establishments = [
+              {
+                id: 0,
+                name: 'Grau Técnico Campinas: Administração, Enfermagem e Radiologia',
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+                lat: -22.908166,
+                lng: -47.0597819,
+                stars: 5,
+                address: 'Av. Dr. Moraes Salles, 488 - Centro, Campinas - SP, 13010-001, Brazil',
+                comments: []
+              },
+              {
+                id: 1,
+                name: 'JIMI Aviamentos e Artesanatos',
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+                lat: -22.90760,
+                lng: -47.06366,
+                stars: 3,
+                address: 'Rua Dr. Costa Aguiar, 253 - Centro, Campinas - SP, 13010-061, Brazil',
+                comments: []
+              },
+              {
+                id: 2,
+                name: "McDonald's",
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quas reiciendis explicabo ratione dignissimos? Accusamus, voluptates enim! Eaque, harum ratione amet sed officiis ad illum commodi, laborum possimus magni eius?",
+                lat: -22.905674,
+                lng: -47.059313,
+                stars: 5,
+                address: 'Av. Francisco Glicério, 1000 - Centro, Campinas - SP, 13012-100, Brazil',
+                comments: []
+              }
+            ]
           return establishments;
         },
       },
